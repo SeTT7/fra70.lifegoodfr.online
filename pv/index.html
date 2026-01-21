@@ -167,18 +167,9 @@ animation: pulse 1s infinite forwards alternate-reverse;
 </script>
 
 <script>
-(function waitForTTQ() {
-  if (typeof ttq === "function") {
-    setTimeout(function () {
-      if (!localStorage.getItem('tt_lead_13min')) {
-        ttq.track('Lead');
-        localStorage.setItem('tt_lead_13min', '1');
-      }
-    }, 780000);
-  } else {
-    setTimeout(waitForTTQ, 500);
-  }
-})();
+setTimeout(function () {
+  ttq.track('Lead');
+}, 780000); // 13 minutos
 </script>
 
 
@@ -186,6 +177,7 @@ animation: pulse 1s infinite forwards alternate-reverse;
 
 </body>
 </html>
+
 
 
 
