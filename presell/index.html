@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
-
-  
-
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="acceder al contenido">
-    <title>Contenido Exclusivo</title>
-
+    <meta name="description" content="accéder au contenu">
+    <title>Exclusive Content</title>
+    
+    <!-- Pré-carregamento de recursos essenciais -->
+    <link rel="preload" href="https://scripts.converteai.net/c7daae54-28f8-4e09-90be-5fed14986104/players/67d20d15b7ef8e55f55e284e/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/c7daae54-28f8-4e09-90be-5fed14986104/67d0ec6327e969e4dd7cee46/main.m3u8" as="fetch">
+    
+    <!-- Pré-conexão para melhor performance -->
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    
     <style>
+        /* ===== RESET E ESTILOS BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -27,6 +37,7 @@
             line-height: 1.5;
         }
 
+        /* ===== CONTAINER PRINCIPAL ===== */
         .age-verification-container {
             text-align: center;
             max-width: 400px;
@@ -34,6 +45,7 @@
             animation: fadeIn 0.5s ease-in-out;
         }
 
+        /* ===== ELEMENTOS DE TEXTO ===== */
         .verification-title {
             color: #cc0000;
             font-size: 28px;
@@ -50,6 +62,7 @@
             line-height: 1.4;
         }
 
+        /* ===== BOTÕES E CALLS-TO-ACTION ===== */
         .primary-button, 
         #verification-cta-button {
             background-color: #cc0000;
@@ -74,6 +87,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+        /* ===== CONTAINER DO BOTÃO PRINCIPAL ===== */
         .cta-button-container {
             max-width: 100%;
             margin: 0 auto;
@@ -81,6 +95,7 @@
             padding: 20px;
         }
 
+        /* ===== ANIMAÇÕES ===== */
         @keyframes fadeIn {
             from { 
                 opacity: 0; 
@@ -94,24 +109,25 @@
     </style>
 </head>
 <body>
-
-    <main class="age-verification-container">
-        <h1 class="verification-title">Acceso a Contenido Exclusivo:</h1>
-        <p class="verification-instruction">
-            Haz clic en el botón de abajo para ver el video explicativo
-        </p>
-
+    <!-- Conteúdo principal da página -->
+     <main class="age-verification-container">
+        <h1 class="verification-title">Accès au Contenu Exclusif :</h1>
+        <p class="verification-instruction">Cliquez sur le bouton ci-dessous pour visionner la vidéo explicative</p>
+        
         <div class="cta-button-container"> 
-            <a href="https://fra48.lifegoodfr.online/pv" id="verification-cta-button" class="primary-button">
-                VER EL VIDEO
+            <a href="https://fra70.lifegoodfr.online/pv" id="verification-cta-button" class="primary-button">
+                VISIONNER LA VIDÉO
             </a>
         </div>
     </main>
 
+    <!-- Scripts carregados ao final para melhor performance -->
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-
+    
     <script>
+        // Inicialização quando o DOM estiver carregado
         document.addEventListener("DOMContentLoaded", function() {
+            // Função para capturar parâmetros da URL
             function collectUrlParameters(url) {
                 const urlObj = new URL(url);
                 let paramString = "";
@@ -123,7 +139,23 @@
                 return paramString;
             }
 
+            // Aplicar parâmetros da URL a todos os links
             const urlParams = collectUrlParameters(window.location.href);
 
             if (urlParams) {
-                document.querySelectorAll("a").for
+                document.querySelectorAll("a").forEach(link => {
+                    const separator = link.href.includes("?") ? "&" : "?";
+                    link.href += `${separator}${urlParams}`;
+                });
+            }
+            
+            // Rastreamento de eventos para analytics
+            document.getElementById('verification-cta-button').addEventListener('click', function() {
+                if (typeof ttq !== 'undefined') {
+                    ttq.track('ClickButton', {});
+                }
+            });
+        });
+    </script>
+</body>
+</html>
